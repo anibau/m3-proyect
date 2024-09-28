@@ -1,14 +1,7 @@
-interface IUser{
-    nombres: string,
-    apellidos: string,
-    edad: number,
-    email: string,
-}
-const usuario1: IUser={
-    nombres: 'miriam anelis',
-    apellidos: 'bautista torres',
-    edad: 32,
-    email: 'miriam@gmail.com',
-}
+import { port } from "./Config/dotenvConfig";
+import server from "./server";
 
-console.log(usuario1)
+
+server.listen(port, ()=>{
+    console.log(`servidor escuchando en el puerto ${port}`)
+})
