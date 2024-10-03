@@ -5,6 +5,6 @@ const routerAppoint= Router();
 routerAppoint.get("/", getTurnAllController);
 routerAppoint.get("/:id", getTurnbyIdController);
 routerAppoint.post("/schedule", postTurnController);
-routerAppoint.put("/cancel", putCancelController)
+routerAppoint.put("/:id", putCancelController);
 
 export default routerAppoint;
