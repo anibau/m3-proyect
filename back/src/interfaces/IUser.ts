@@ -5,5 +5,5 @@ export interface IUser{
     email: string,
     birthdate: string,
     nDni: number,
-    credentialsId: number | null
+    credentialsId: number
 }

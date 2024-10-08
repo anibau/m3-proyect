@@ -1,4 +1,5 @@
 export interface IdtoCredential{
     username: string,
-    password: string
+    password: string,
+    userId: number
 }
