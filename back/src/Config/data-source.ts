@@ -3,15 +3,17 @@ import { User } from "../Entities/User";
 import { Appointment } from "../Entities/Appointment";
 import { credential } from "../Entities/Credential";
 import { Pet } from "../Entities/Pets";
+import { DTBase, password, portDTB} from "./dotenvConfig";
+
 
 
 export const AppDataSource = new DataSource({
     type: "postgres",
     host: "localhost",
-    port: 5432,
+    port: Number(portDTB),
     username: "postgres",
-    password: "manchas1",
-    database: "pi3_spapet",
+    password: password,
+    database: DTBase,
     synchronize: true,
     //dropSchema:true, //limpia la base de datos, util para desarrollo
     logging: false,
