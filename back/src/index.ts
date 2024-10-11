@@ -9,4 +9,5 @@ AppDataSource.initialize()
     server.listen(port, ()=>{
         console.log(`servidor escuchando en el puerto ${port}`)
     })
-})
+}).catch((err)=>console.log(err))
+    

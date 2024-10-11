@@ -7,7 +7,7 @@ export class Pet{
     id: number
     @Column()
     name: string
-    @Column()
+    @Column("integer")
     age: number
     @Column()
     weight: string

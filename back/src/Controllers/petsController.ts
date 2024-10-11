@@ -1,19 +1,26 @@
 import { Response, Request } from "express";
 import { userGetPetsByIdService, userGetPetsService, userPostPetService } from "../Services/petsService";
-import { catchAsync } from "../Utils/manageError";
-//funcion para obtener los pets
-export const userGetPetsController= catchAsync(async(req: Request, res: Response)=>{
-    const pets= await userGetPetsService();
-    res.status(201).json(pets)
-});
-//funcion para obtener por ID
-export const userGetPetsByIDController= catchAsync(async(req:Request, res: Response)=>{
-    const {id}= req.params;
-    const petById= await userGetPetsByIdService(Number(id));
-    res.status(201).json(petById)
-});
-//funcion para crear un pet
-export const userPostPetController= catchAsync(async(req: Request, res: Response)=>{
-    const newPet= await userPostPetService(req.body);
-    res.status(201).json(newPet)
-})
+//funcion para GET/PETS
+export const userGetPetsController= async(req: Request, res: Response)=>{
+    try{
+        const pets= await userGetPetsService();
+        res.status(200).json(pets)
+    }catch(err){
+        res.status(400).send('error al encontrar la lista de pets.')
+    }
+};
+//funcion para GET/PETS/:ID
+export const userGetPetsByIDController= async(req:Request, res: Response)=>{
+    try{
+        const {id}= req.params;
+        const petById= await userGetPetsByIdService(Number(id));
+        res.status(200).json(petById)
+    }catch(err){res.status(404).send('error al encontrar PET por Id.')}
+};
+//funcion para POST/PETS
+export const userPostPetController= async(req: Request, res: Response)=>{
+    try{
+        const newPet= await userPostPetService(req.body);
+        res.status(201).json(newPet)
+    }catch(err){res.status(404).send('error al crear PET')}
+}

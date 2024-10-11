@@ -10,7 +10,7 @@ import { Pet } from "./Pets"
 export class User{
     @PrimaryGeneratedColumn()
     id: number
-    @Column("text")
+    @Column("text") 
     name: string
     @Column()
     lastName: string
@@ -20,6 +20,8 @@ export class User{
     birthdate: string
     @Column("integer")
     nDni: number
+    @Column("integer")
+    telefono: number
     @OneToOne(()=>credential) //relacion con credenciales
     @JoinColumn()
     credentials: credential

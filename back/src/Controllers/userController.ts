@@ -1,35 +1,46 @@
 import { NextFunction, Request, Response } from "express";
-import { checkCredentialServ, createCredentialServ, getCredentialService } from "../Services/credentialService";
+import { checkCredentialServ, getCredentialService } from "../Services/credentialService";
 import { getAllUsersService, getUserByIdService, postCreateUserService } from "../Services/userServices";
-import { catchAsync } from "../Utils/manageError";
 //USERS
-export const userGetallController= catchAsync(async(req: Request, res: Response, next:NextFunction)=>{
-    const users= await getAllUsersService();
-    res.status(201).json(users)
-});
-
-export const userGetbyIdController= catchAsync(async(req: Request, res: Response)=>{
-    const {id}=req.params;
+export const userGetallController= async(req: Request, res: Response, next:NextFunction)=>{
+    try{
+        const users= await getAllUsersService();
+        res.status(201).json(users)
+    }catch(err){res.status(404).send(`error al encontrar la lista de usuarios. ${err}`)}
+};
+//! GET /user/:id
+export const userGetbyIdController= async(req: Request, res: Response)=>{
+    try{
+        const {id}=req.params;
         const idUser= await getUserByIdService(Number(id));
-        res.status(201).json(idUser)
-});
-export const postCreateUserController= catchAsync(async(req:Request, res: Response)=>{
-    const newUser= await postCreateUserService(req.body);
-    res.status(201).json(newUser)
+        res.status(200).json(idUser)
+    } catch(err){res.status(404).send(`Usuario no econtrado por Id. ${err}`)}
+};
+//! POST /user/register
+export const postCreateUserController= async(req:Request, res: Response)=>{
+    try{
+        const newUser= await postCreateUserService(req.body);
+        res.status(201).json(newUser)
+    }catch(err){res.status(400).send(`Error al crear Usuario. ${err}`)}
     
-});
+};
 //CREDENCIALES
-export const credentialPostRegisterController= catchAsync(async(req:Request, res: Response)=>{
-    const newCRED= await createCredentialServ(req.body)
-    res.status(201).json(newCRED)
-});
-export const checkPostRegisController= catchAsync(async(req: Request, res:Response)=>{
-    const checkUser= await checkCredentialServ(req.body);
-    res.status(200).json(checkUser)
-});
+//! POST /users/login
+export const checkPostRegisController= async(req: Request, res:Response)=>{
+    try{
+        const checkUser= await checkCredentialServ(req.body);
+        res.status(200).json(checkUser)
+    }catch(err){
+        res.status(400).send('Datos incorrectos. Inicio de sesion fallida')
+    }
+};
   //extra controller
-export const getCredentialController= catchAsync(async(req: Request, res: Response)=>{
-    const credent= await getCredentialService();
-    res.status(201).json(credent)
-} )
+export const getCredentialController= async(req: Request, res: Response)=>{
+    try{
+        const credent= await getCredentialService();
+        res.status(201).json(credent)
+    }catch(err){
+        res.status(400).send('Error al obtener lista de credenciales')
+    }
+}
 
