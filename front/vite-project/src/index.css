@@ -1,0 +1,125 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: rgb(250, 193, 203);
+  position: relative;
+  box-sizing: border-box;
+}
+.bodyS{
+  border: 20px solid rgb(35, 9, 9);
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.mainHome{
+  width: 90%;
+  height: 80vh;
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  padding: 30px 0px;
+  text-align: justify;
+}
+.corner-image {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background-image: url(./img/huellas-dog-transp.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+.corner-top-left {
+  top: 85px;
+  left: 0;
+}
+
+.corner-top-right {
+  top: 85px;
+  right: 0;
+}
+
+.corner-bottom-left {
+  bottom: 0;
+  left: 10;
+}
+
+.corner-bottom-right {
+  bottom: 0;
+  right: 0;
+}
+
+/* componente NAVBAR */
+.navbarPet{
+  background-color: rgb(252, 219, 224);
+}
+.btnNavbar{
+  justify-content: space-around;
+  gap: 15px;
+  background-color: rgb(250, 193, 203);
+  padding: 10px 20px;
+}
+.btnNB{
+  color: blue;
+  border-color: blue;
+  background-color: rgb(250, 193, 203);
+}
+.btnNB:hover{
+  background-color: blue;
+  border-color: blue;
+  color: white ;
+}
+/* COMPONETE HOMEDIV */
+.imgHome{
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  align-items: center;
+}
+.imgH{
+  width: 350px;
+  margin: 10px 0px;
+}
+.titleH{
+  font-weight: 900;
+  font-style: italic;
+  padding: 10px;
+  text-shadow: 5px 9px 6px rgba(253, 253, 253, 0.98);
+}
+.btnH{
+  padding: 3px 10px;
+  margin: 5px;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  background-color: rgb(35, 9, 9);
+}
+.btnH:hover{
+  background-color: white;
+  color: rgb(35, 9, 9)
+}
+
+@media (max-width: 767px){
+  .imgH{
+    max-width: 150px;
+  }
+  .corner-image {
+    width: 50px;
+    height: 50px;
+  }
+  .mainHome{
+    height: auto;
+    padding: 35px 10px;
+  }
+  .bodyS{
+    height: auto;
+    border: 8px solid rgb(35, 9, 9);
+  }
+}
