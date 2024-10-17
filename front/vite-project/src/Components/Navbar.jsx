@@ -18,7 +18,8 @@ function NavbarPet() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href="#action1">Home</Nav.Link>
+            <Nav.Link href='action1' >Home</Nav.Link>
+            <Nav.Link href="#action1">Mis Turnos</Nav.Link>
             <Nav.Link href="#action1">Contact</Nav.Link>
             <NavDropdown title="Services" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">Peluqueria</NavDropdown.Item>
