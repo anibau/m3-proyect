@@ -16,6 +16,9 @@ body{
   height: auto;
   min-height: 100vh;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .corner-image {
   position: absolute;
@@ -137,8 +140,9 @@ body{
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background-color: rgba(246, 177, 206, 0.753);
+  background-color: rgba(246, 221, 231, 0.753);
   border: 2px solid rgba(65, 15, 36, 0.753);
+  width: 160px;
 }
 .titleCardTurn{
   font-family: monospace;
@@ -148,6 +152,48 @@ body{
 }
 .textTurn{
   margin-bottom: 0px;
+}
+.statusActive{
+  color: green;
+  font-weight: bold;
+}
+.statusCancelled{
+  color: red;
+  font-weight: bold;
+}
+.btnTurn{
+  margin-top: 5px;
+  padding: 0px 5px;
+  border-radius: 5px;
+  color: blue;
+  font-weight: bold;
+  border-color: blue;
+}
+.btnTurn:hover{
+  color: white;
+  background-color: blue;
+}
+.btnCancelled:disabled{
+  background: rgb(220, 218, 218);
+  margin-top: 5px;
+  padding: 0px 5px;
+  border-radius: 5px;
+}
+/* componente FOOTER */
+.containerFooter{
+  width: 100%;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-top: 2px dotted rgba(65, 15, 36, 0.753);
+  margin-top: 10px;
+  box-sizing: border-box;
+}
+.divIcons{
+ margin: 7px;
+ color: rgba(65, 15, 36, 0.753);
+ font-size: 30px;
 }
 
 @media (max-width: 767px){
@@ -165,5 +211,9 @@ body{
   .bodyS{
     height: auto;
     border: 8px solid rgb(35, 9, 9);
+  }
+  .containerFooter{
+    display: flex;
+    flex-direction: column;
   }
 }

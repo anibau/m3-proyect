@@ -1,6 +1,7 @@
 // import Home from "./Views/Home/Home";
 import NavbarPet from "./Components/Navbar";
 import Turnos from "./Views/Turnos/Turnos";
+import Footer from "./Components/footer";
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
       <NavbarPet/>
       {/* <Home/> */}
       <Turnos/>
+      <Footer/>
     </main>  
     </>
   )
