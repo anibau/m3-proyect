@@ -2,7 +2,8 @@ import TurnosC from "../../Components/turnosC";
 import { useState , useEffect} from "react";
 // import turnosDatos from "../../Helpers/turnos";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import  axios from 'axios'
+import  axios from 'axios';
+import './turnos.css'
 
 
 const Turnos =()=>{

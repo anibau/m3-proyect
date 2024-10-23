@@ -1,0 +1,56 @@
+/* register */
+.divRegister{
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .divRegister h3{
+    margin: 10px;
+    font-family: "Londrina Sketch", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 2rem;
+  }
+  .formRegister{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    width: 50%;
+    padding: 10px;
+  }
+  .formRegister label{
+    padding: 5px;
+    text-align: justify;
+  }
+  .formRegister label input{
+    width: 250px;
+    display: flex;
+    padding: 2px 5px;
+    border-radius: 3px;
+  }
+  .formRegister button{
+    width: 40%;
+    min-width: 150px;
+    justify-content: center;
+    margin: 10px;
+    background-color: blue;
+    color: white;
+    border: 2px solid blue;
+    border-radius: 5px;
+    padding: 5px;
+    font-weight: bold;
+  }
+  .formRegister button:hover{
+    background-color: white;
+    color: blue;
+  }
+  .divExito{
+    margin: 10px;
+    border: 2px solid green;
+    padding: 5px;
+    color: green;
+  }

@@ -6,9 +6,9 @@ body{
   margin: 0;
   padding: 0;
   width: 100%;
-  background-color: rgb(250, 193, 203);
   position: relative;
   box-sizing: border-box;
+  background-color: rgb(254, 235, 239);
 }
 .bodyS{
   border: 20px solid rgb(35, 9, 9);
@@ -69,115 +69,6 @@ body{
   background-color: blue;
   border-color: blue;
   color: white ;
-}
-/* COMPONETE HOMEDIV */
-.mainHome{
-  width: 90%;
-  height: 80vh;
-  display: flex;
-  justify-content:center;
-  align-items:center;
-  padding: 30px 0px;
-  text-align: justify;
-}
-.imgHome{
-  justify-content: center;
-  width: 100%;
-  height: auto;
-  align-items: center;
-}
-.imgH{
-  width: 350px;
-  margin: 10px 0px;
-}
-.titleH{
-  font-weight: 900;
-  font-style: italic;
-  padding: 10px;
-  text-shadow: 5px 9px 6px rgba(253, 253, 253, 0.98);
-}
-.btnH{
-  padding: 3px 10px;
-  margin: 5px;
-  border-radius: 20px;
-  color: white;
-  font-weight: bold;
-  background-color: rgb(35, 9, 9);
-}
-.btnH:hover{
-  background-color: white;
-  color: rgb(35, 9, 9)
-}
-/* COMPONENTE TURNOS */
-.turnContainer{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.titleTurn{
-  text-align: center;
-  font-family: "Londrina Sketch", sans-serif;
-  font-weight: 600;
-  font-style: normal;
-  font-size: 2rem;
-  margin: 15px;
-  text-shadow: -18px 10px 13px rgba(21, 0, 0, 0.97);
-}
-.cardListTurn{
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  width: 95vw;
-  padding: 10px;
-  border: 2px solid black;
-}
-.cardTurno{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 15px;
-  background-color: rgba(246, 221, 231, 0.753);
-  border: 2px solid rgba(65, 15, 36, 0.753);
-  width: 160px;
-}
-.titleCardTurn{
-  font-family: monospace;
-  font-size: 1rem;
-  font-weight: bold;
-  text-decoration: underline;
-}
-.textTurn{
-  margin-bottom: 0px;
-}
-.statusActive{
-  color: green;
-  font-weight: bold;
-}
-.statusCancelled{
-  color: red;
-  font-weight: bold;
-}
-.btnTurn{
-  margin-top: 5px;
-  padding: 0px 5px;
-  border-radius: 5px;
-  color: blue;
-  font-weight: bold;
-  border-color: blue;
-}
-.btnTurn:hover{
-  color: white;
-  background-color: blue;
-}
-.btnCancelled:disabled{
-  background: rgb(220, 218, 218);
-  margin-top: 5px;
-  padding: 0px 5px;
-  border-radius: 5px;
 }
 /* componente FOOTER */
 .containerFooter{

@@ -1,0 +1,71 @@
+/* COMPONENTE TURNOS */
+.turnContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .titleTurn{
+    text-align: center;
+    font-family: "Londrina Sketch", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 2rem;
+    margin: 15px;
+    text-shadow: -18px 10px 13px rgba(21, 0, 0, 0.97);
+  }
+  .cardListTurn{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 95vw;
+    padding: 10px;
+    border: 2px solid black;
+  }
+  .cardTurno{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background-color: rgba(246, 221, 231, 0.753);
+    border: 2px solid rgba(65, 15, 36, 0.753);
+    width: 160px;
+  }
+  .titleCardTurn{
+    font-family: monospace;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  .textTurn{
+    margin-bottom: 0px;
+  }
+  .statusActive{
+    color: green;
+    font-weight: bold;
+  }
+  .statusCancelled{
+    color: red;
+    font-weight: bold;
+  }
+  .btnTurn{
+    margin-top: 5px;
+    padding: 0px 5px;
+    border-radius: 5px;
+    color: blue;
+    font-weight: bold;
+    border-color: blue;
+  }
+  .btnTurn:hover{
+    color: white;
+    background-color: blue;
+  }
+  .btnCancelled:disabled{
+    background: rgb(220, 218, 218);
+    margin-top: 5px;
+    padding: 0px 5px;
+    border-radius: 5px;
+  }
