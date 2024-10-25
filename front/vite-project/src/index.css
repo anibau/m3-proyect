@@ -86,6 +86,11 @@ body{
  color: rgba(65, 15, 36, 0.753);
  font-size: 30px;
 }
+/* componente ERROR */
+.divCompError{
+  width: 100%;
+  text-align: center;
+}
 
 @media (max-width: 767px){
   .imgH{

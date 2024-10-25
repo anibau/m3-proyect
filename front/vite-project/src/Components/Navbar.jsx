@@ -5,6 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import logo from '../img/petLogo(1).png';
+import { Link } from 'react-router-dom';
 
 function NavbarPet() {
   return (
@@ -18,9 +19,9 @@ function NavbarPet() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href='action1' >Home</Nav.Link>
-            <Nav.Link href="#action1">Mis Turnos</Nav.Link>
-            <Nav.Link href="#action1">Contact</Nav.Link>
+            <Nav.Link as={Link} to='/home' >Home</Nav.Link>
+            <Nav.Link as={Link} to="/appointments">Mis Turnos</Nav.Link>
+            <Nav.Link as={Link} to="#">Contact</Nav.Link>
             <NavDropdown title="Services" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">Peluqueria</NavDropdown.Item>
               <NavDropdown.Item href="#action4">
@@ -29,8 +30,8 @@ function NavbarPet() {
             </NavDropdown>
           </Nav>
           <Form className="d-flex btnNavbar">
-            <Button className='btnNB' >Login</Button>
-            <Button className='btnNB' >Register</Button>
+            <Button className='btnNB' as={Link} to='/' >Login</Button>
+            <Button className='btnNB' as={Link} to='/register' >Register</Button>
           </Form>
         </Navbar.Collapse>
       </Container>
