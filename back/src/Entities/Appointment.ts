@@ -18,5 +18,11 @@ export class Appointment {
     @Column()
     pet:string
     @Column()
+    namePet:string
+    @Column()
+    agePet:string
+    @Column()
+    weigthPet:string
+    @Column()
     service: string
 }

@@ -1,7 +1,7 @@
 import { AppDataSource } from "../Config/data-source";
-import { dtoPet } from "../Dto/dtoPets";
 import { petRepository } from "../Repositories/petRepository";
 import { userRepository } from "../Repositories/userRepository";
+import { dtoPet } from "../Dto/dtoPets";
 
 //FUNCION GET/PETS
 export const userGetPetsService= async()=>{
@@ -33,7 +33,7 @@ export const userPostPetService= async(data:dtoPet)=>{
             if(!user){throw Error()};
             newPet.user= user;
             await queryRunner.manager.save(newPet);
-            await queryRunner.commitTransaction();
+            await queryRunner.commitTransaction(); 
             return newPet
     }catch(err){
         await queryRunner.rollbackTransaction();

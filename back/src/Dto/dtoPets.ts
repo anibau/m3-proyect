@@ -1,7 +1,7 @@
 export interface dtoPet{
-    name: string,
-    age: number,
-    weight: string,
-    raza: string,
+    namePet: string,
+    agePet: string,
+    weigthPet: string,
+    pet: string,
     userId: number
 }

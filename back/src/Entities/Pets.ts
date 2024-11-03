@@ -6,13 +6,13 @@ export class Pet{
     @PrimaryGeneratedColumn()
     id: number
     @Column()
-    name: string
-    @Column("integer")
-    age: number
+    namePet: string
     @Column()
-    weight: string
+    agePet: string
     @Column()
-    raza: string
+    weigthPet: string
+    @Column()
+    pet: string
     @ManyToOne(()=>User, (user)=>{user.pets})
     user: User
 }

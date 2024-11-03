@@ -6,11 +6,13 @@ import Footer from "./Components/footer";
 import Register from "./Views/Register/Register";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route } from "react-router-dom";
-import { useLocation } from "react-router-dom";
 import Error from "./Components/error";
+import AgregarTurnos from "./Views/agregarTurno/agregarTurno";
+import Baño from "./Views/Services/baño";
+import Peluqueria from "./Views/Services/Peluqueria";
+
 
 function App() {
-  const location= useLocation();
 
   return (
     <>
@@ -19,10 +21,13 @@ function App() {
       <div className="corner-image corner-top-right"></div>
       <div className="corner-image corner-bottom-left"></div>
       <div className="corner-image corner-bottom-right"></div>
-      {location.pathname!=='/'&& <NavbarPet/>}
+      <NavbarPet/>
       <Routes>
         <Route path="/home" element={<Home/>}/>
-        <Route path="/appointments" element={<Turnos/>}/>
+        <Route path="/appointments/:id" element={<Turnos/>}/>
+        <Route path="/appointments/add/:id" element={<AgregarTurnos/>}/>
+        <Route path="/service/baño" element={<Baño/>}/>
+        <Route path="/service/peluqueria" element={<Peluqueria/>}/>
         <Route path="/register" element={<Register/>}/>
         <Route path="/" element={<Login/>}/>
         <Route path="*" element={<Error/>}/>

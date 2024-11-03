@@ -18,10 +18,10 @@ export class User{
     email: string
     @Column()
     birthdate: string
-    @Column("integer")
-    nDni: number
-    @Column("integer")
-    telefono: number
+    @Column()
+    nDni: string
+    @Column()
+    telefono: string
     @OneToOne(()=>credential) //relacion con credenciales
     @JoinColumn()
     credentials: credential

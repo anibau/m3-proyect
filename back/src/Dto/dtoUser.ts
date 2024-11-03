@@ -3,8 +3,8 @@ export interface dtoUser{
     lastName:string
     email: string,
     birthdate: string,
-    nDni: number,
-    telefono: number,
+    nDni: string,
+    telefono: string,
     username: string,
     password: string, 
 }

@@ -24,9 +24,7 @@ export const getCredentialService = async (): Promise<credential[]> => {
 };
 
 //!Implementar una función que reciba username y password y cree un nuevo par de credenciales con estos datos. Debe retornar el ID del par de credenciales creado.
-export const createCredentialServ = async (
-  data: IdtoCredential
-): Promise<credential> => {
+export const createCredentialServ = async (data: IdtoCredential): Promise<credential> => {
   try {
     //se crea la credential
     const newCred: credential = credentialRepository.create(data);
@@ -47,13 +45,6 @@ export const createCredentialServ = async (
   } catch (err) {
     throw Error();
   }
-  // let newCredential: ICredential={
-  //     id: credentials.length+1,
-  //     username: data.username,
-  //     password: data.password
-  // };
-  // credentials.push(newCredential);
-  // return  newCredential.id
 };
 //!Implementar una función que recibirá username y password, y deberá chequear si el nombre de usuario existe entre los datos disponibles y, si es así, si el password es correcto. En caso de que la validación sea exitosa, deberá retornar el ID de las credenciales.
 export const checkCredentialServ = async (data: IdtoCheckCredential): Promise<  | {
@@ -64,8 +55,8 @@ export const checkCredentialServ = async (data: IdtoCheckCredential): Promise<  
         lastName: string;
         email: string;
         birthdate: string;
-        nDni: number;
-        telefono: number;
+        nDni: string;
+        telefono: string;
       };
     }
   | string

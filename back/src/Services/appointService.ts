@@ -3,6 +3,7 @@ import { Appointment } from "../Entities/Appointment";
 import { appointRepository } from "../Repositories/appointRepository";
 import { userRepository } from "../Repositories/userRepository";
 import { AppDataSource } from "../Config/data-source";
+import { userPostPetService } from "./petsService";
 
 // let appointments: IAppointment[]= [];
 // let turn1={
@@ -40,6 +41,10 @@ export const postTurnService= async(data: dtoAppointment): Promise<Appointment |
         queryRunner.startTransaction();
         const createTurn: Appointment= appointRepository.create(data);
         await queryRunner.manager.save(createTurn);
+        //crear el pet
+         if(!createTurn.id){throw Error('turno no creado')};
+         const createPet= await userPostPetService({pet:data.pet, namePet: data.namePet, agePet: data.agePet, weigthPet: data.weigthPet, userId:data.userId})
+         await queryRunner.manager.save(createPet);   
         //encontrar al USER con el userId de la nueva appointment 
         const user= await userRepository.findOneBy({
             "id": data.userId

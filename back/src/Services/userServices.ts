@@ -65,17 +65,4 @@ export const postCreateUserService= async(data:dtoUser):Promise<User|void>=>{
    }catch(err){
      throw Error('error al creau usuario')
    }
-    // const {username, password}=data;
-    // let newCredential= await createCredentialServ({username, password});
-    // console.log(`nueva credencial ${newCredential}`);
-    // let newUser: IUser={
-    //     id: users.length+1,
-    //     name: data.name,
-    //     email: data.email,
-    //     birthdate: data.birthdate,
-    //     nDni: data.nDni,
-    //     credentialsId: newCredential
-    // };
-    // users.push(newUser);
-    // return `nuevo usuario con id ${newUser.id}`
 }
