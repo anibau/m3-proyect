@@ -2,7 +2,7 @@ import { useState } from "react"
 import {validate} from '../../Helpers/validate'
 import './register.css';
 import axios from 'axios';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 
 const Register= ()=>{
     const [dataRegister, setDataRegister]= useState({
@@ -30,6 +30,7 @@ const Register= ()=>{
     });
     const [submit, setSubmit]=useState(false);
     const [exit, setExit]= useState('');
+    const navigate= useNavigate();
 
     const HandleInput=(event)=>{
         const{name, value}= event.target;
@@ -61,7 +62,8 @@ const Register= ()=>{
                     username: '',
                     password: '',
                     password2: ''});
-                setSubmit(false);    
+                setSubmit(false);  
+                navigate('/')  
             })
             .catch((err)=>{
                 console.log(err);
