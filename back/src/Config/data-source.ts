@@ -1,8 +1,7 @@
 import { DataSource } from "typeorm";
 import { User } from "../Entities/User";
 import { Appointment } from "../Entities/Appointment";
-import { credential } from "../Entities/Credential";
-import { Pet } from "../Entities/Pets";
+import { Credential } from "../Entities/Credential";
 import { DB_DATABASE, DB_PASSWORD, DB_PORT, DB_USERNAME, DB_HOST} from "./dotenvConfig";
 
 
@@ -17,7 +16,7 @@ export const AppDataSource = new DataSource({
     synchronize: true,
     //dropSchema:true, //limpia la base de datos, util para desarrollo
     logging: false,
-    entities: [User, Appointment, credential, Pet],
+    entities: [User, Appointment, Credential],
     subscribers: [],
     migrations: [],
 });

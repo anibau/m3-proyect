@@ -1,5 +1,4 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm"
-import { User } from "./User"
 
 @Entity({name: "pets"})
 export class Pet{
@@ -13,6 +12,4 @@ export class Pet{
     weigthPet: string
     @Column()
     pet: string
-    @ManyToOne(()=>User, (user)=>{user.pets})
-    user: User
 }

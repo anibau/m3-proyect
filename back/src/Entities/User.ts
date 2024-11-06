@@ -1,8 +1,6 @@
 import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm"
-import { credential } from "./Credential"
+import { Credential } from "./Credential"
 import { Appointment } from "./Appointment"
-import { Pet } from "./Pets"
-
 
 @Entity({
     name: "users"
@@ -22,11 +20,9 @@ export class User{
     nDni: string
     @Column()
     telefono: string
-    @OneToOne(()=>credential) //relacion con credenciales
+    @OneToOne(()=>Credential) //relacion con credenciales
     @JoinColumn()
-    credentials: credential
+    credentials: Credential
     @OneToMany(()=>Appointment, (appointment)=>appointment.user)
     appointments: Appointment[]
-    @OneToMany(()=>Pet, (pet)=>pet.user)
-    pets: Pet[]
 }

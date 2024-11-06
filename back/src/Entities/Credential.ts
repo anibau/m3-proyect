@@ -2,7 +2,7 @@ import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "ty
 import { User } from "./User"
 
 @Entity({name: "credentials"})
-export class credential{
+export class Credential{
     @PrimaryGeneratedColumn()
     id: number
     @Column()

@@ -1,5 +1,5 @@
 import { IdtoCheckCredential, IdtoCredential } from "../Dto/dtoCredential";
-import { credential } from "../Entities/Credential";
+import { Credential } from "../Entities/Credential";
 import { credentialRepository } from "../Repositories/credentialRepository";
 import { userRepository } from "../Repositories/userRepository";
 
@@ -16,18 +16,18 @@ import { userRepository } from "../Repositories/userRepository";
 // let credentials: ICredential[]=[];
 // credentials.push(credential1, credential2);
 //EXTRA SERVICE
-export const getCredentialService = async (): Promise<credential[]> => {
-  const creden: credential[] = await credentialRepository.find({
+export const getCredentialService = async (): Promise<Credential[]> => {
+  const creden: Credential[] = await credentialRepository.find({
     relations: { user: true },
   });
   return creden;
 };
 
 //!Implementar una función que reciba username y password y cree un nuevo par de credenciales con estos datos. Debe retornar el ID del par de credenciales creado.
-export const createCredentialServ = async (data: IdtoCredential): Promise<credential> => {
+export const createCredentialServ = async (data: IdtoCredential): Promise<Credential> => {
   try {
     //se crea la credential
-    const newCred: credential = credentialRepository.create(data);
+    const newCred: Credential = credentialRepository.create(data);
     await credentialRepository.save(newCred);
     //se encuentra USER
     const user = await userRepository.findOne({

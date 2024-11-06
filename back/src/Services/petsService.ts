@@ -5,16 +5,12 @@ import { dtoPet } from "../Dto/dtoPets";
 
 //FUNCION GET/PETS
 export const userGetPetsService= async()=>{
-    const pets= await petRepository.find({
-        relations:{
-            user: true
-        }
-    });
+    const pets= await petRepository.find();
     return pets
 };
 //FUNCION GET/PETS/:ID
 export const userGetPetsByIdService= async(id: number)=>{
-    const pet= await petRepository.findOne({where:{id}, relations:{user:true}});
+    const pet= await petRepository.findOne({where:{id}});
     if(!pet){throw Error()};
     return pet
 };
@@ -31,8 +27,8 @@ export const userPostPetService= async(data:dtoPet)=>{
                 "id": data.userId
             });
             if(!user){throw Error()};
-            newPet.user= user;
-            await queryRunner.manager.save(newPet);
+            // newPet.user= user;
+            // await queryRunner.manager.save(newPet);
             await queryRunner.commitTransaction(); 
             return newPet
     }catch(err){
