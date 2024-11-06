@@ -12,10 +12,9 @@ import { AppointmentContext } from "../../Context/Appointment";
 const Turnos = () => {
   const[contact, setContact]=useState('');
   const [turnShow, setTurnShow] = useState([]);
-  const {users}= useContext(UsersContext);
-  const{appointments, setAppointments}= useContext(AppointmentContext);
-  const userId= users?.id;
-  const user= users;
+  const {user}= useContext(UsersContext);
+  const{userAppointments, setUserAppointments}= useContext(AppointmentContext);
+  const userId= user?.id;
   
   useEffect(() => {
     if(userId){
@@ -26,21 +25,21 @@ const Turnos = () => {
         setContact(nombre);
         const dataApointment= data.appointments;
         setTurnShow(dataApointment);
-        setAppointments(dataApointment);
+        setUserAppointments(dataApointment);
       })
       .catch((error) => {
         console.log(`error: ${error}`)
       })
     }
-  }, [userId, setAppointments]);
-  console.log(appointments)
+  }, [userId, setUserAppointments]);
+  console.log(userAppointments)
 
   return (
     <div className="turnContainer">
       <h1 className="titleTurn">BIENVENID@ A PETSPA: <span className="userTurn">{contact}</span></h1>
       <h4>Este es el historial de tus turnos </h4>
       <div className="cardListTurn">
-        {turnShow.length===0 && <p style={{padding:'10px'}}>Aun no tiene turnos agendados 😌</p> }
+        {turnShow.length===0 && <p style={{padding:'10px', fontSize:'1.5rem'}}>Aun no tiene turnos agendados 😌</p> }
         {
           turnShow.map((turn) => {
             return <TurnosC key={turn.id} date={turn.date} time={turn.time} status={turn.status} pet={turn.pet} namePet={turn.namePet} agePet={turn.agePet} weigthPet={turn.weigthPet} service={turn.service} id={turn.id}/>

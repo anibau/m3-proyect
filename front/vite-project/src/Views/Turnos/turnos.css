@@ -71,11 +71,13 @@
     color: white;
     background-color: blue;
   }
-  .btnCancelled:disabled{
-    background: rgb(220, 218, 218);
+  .btnTurn:disabled{
     margin-top: 5px;
     padding: 0px 5px;
     border-radius: 5px;
+    background-color: grey;
+    color: white;
+    border: grey;
   }
   .btnAddTurn{
     margin: 20px;
@@ -89,4 +91,28 @@
   .btnAddTurn:hover{
     background-color: rgb(61, 47, 47);
     border: 2px solid white;
+  }
+  .alertCancel{
+    padding: 5px;
+    max-width: 250px;
+    border: 2px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background-color: beige;
+    position: absolute;
+  }
+  .btnAlert{
+    padding: 5px;
+    margin:5px;
+    border-radius: 3px;
+    color: white;
+    background-color: brown;
+    border: 2px solid brown;
+  }
+  .btnAlert:hover{
+    background-color: palevioletred;
+    border: 2px solid palevioletred;
+    color: white;
   }

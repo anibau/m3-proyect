@@ -10,15 +10,15 @@ import { useContext } from 'react';
 import { UsersContext } from '../Context/Users';
 
 const NavbarPet= ()=> {
-    const {users, setUsers}= useContext(UsersContext);
-    const user= users;
-    const userId= user.id;
+    const {user, setUser}= useContext(UsersContext);
+    const userData= user;
+    const userId= userData.id;
 
     const handleLogout=()=>{
-      setUsers([]);
-      console.log(users)
+      setUser([]);
+      console.log(user)
     }
-    console.log(users)
+    console.log(user)
 
   return (
     <Navbar expand="lg" className="body-tertiary navbarPet">
@@ -32,7 +32,7 @@ const NavbarPet= ()=> {
             navbarScroll
           >
             <Nav.Link as={Link} to='/home' >Home</Nav.Link>
-            {users&& userId!==undefined && <Nav.Link as={Link} to={`/appointments/${userId}`} >Mis turnos</Nav.Link>}
+            {user&& userId!==undefined && <Nav.Link as={Link} to={`/appointments/${userId}`} >Mis turnos</Nav.Link>}
             <Nav.Link as={Link} to="#">Contact</Nav.Link>
             <NavDropdown title="Services" id="navbarScrollingDropdown">
               <NavDropdown.Item as={Link} to='/service/peluqueria'>Peluqueria</NavDropdown.Item>

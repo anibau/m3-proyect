@@ -58,6 +58,11 @@
     background-color: white;
     color: blue;
   }
+  .formLogin button:disabled{
+    background-color: grey;
+    color: white;
+    border: grey;
+  }
   .divError{
     margin: 10px;
     border: 1px solid red;

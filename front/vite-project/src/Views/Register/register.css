@@ -48,6 +48,11 @@
     background-color: white;
     color: blue;
   }
+  .formRegister button:disabled{
+    background-color: grey;
+    color: white;
+    border: grey;
+  }
   .divExito{
     margin: 10px;
     border: 2px solid green;

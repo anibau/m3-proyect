@@ -14,15 +14,15 @@ import { UsersContext } from "./Context/Users";
 import { useContext, useEffect } from "react";
 
 const ProtectedRoute = ({ children }) => {
-  const { users } = useContext(UsersContext);
+  const { user } = useContext(UsersContext);
   const navigate = useNavigate();
 
   useEffect(() => {
     // Si no hay usuarios, redirige al login o a la página de error
-    if (users.length === 0) {
+    if (user.length === 0) {
       navigate("*");
     }
-  }, [users, navigate]);
+  }, [user, navigate]);
 
   return children; // Si hay un usuario, renderiza los hijos
 };

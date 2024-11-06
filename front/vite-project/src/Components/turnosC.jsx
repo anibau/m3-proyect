@@ -1,31 +1,50 @@
 import axios from 'axios';
 import PropTypes from 'prop-types';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AppointmentContext } from '../Context/Appointment';
 
-
 const TurnoC= ({date, time, id, pet, namePet, agePet, weigthPet, service})=> {
-  const{appointments, setAppointments}= useContext(AppointmentContext);
+  const{userAppointments, setUserAppointments}= useContext(AppointmentContext);
   //encontrar el turno actual y renderizar su status
-  const turnoActual= appointments.find((turno)=>turno.id=== id);
+  const turnoActual= userAppointments.find((turno)=>turno.id=== id);
   const statusClass= turnoActual?.status==='active'? 'statusActive': 'statusCancelled';
-  const statusBtn= turnoActual?.status=== 'cancelled'? 'btnCancelled': 'btnTurn';
+  const [alertCancel, setAlertCancel ]=useState(false);
   
   const HandleButton=(event)=>{
     event.preventDefault();
+    // Convertir fecha de la reserva y fecha actual a objetos Date
+    const currentDate = new Date();
+    const [year, month, day] = date.split('-').map(Number);
+    const appointmentDate = new Date(year, month - 1, day);
+    
+    // Validar si el turno puede ser cancelado
+    currentDate.setHours(0, 0, 0, 0);
+    appointmentDate.setDate(appointmentDate.getDate() - 1);
 
-    axios.put(`http://localhost:3000/appointments/cancel/${id}`)
-    .then(()=>{
-      //actualizar el estado
-      const updateAppointment= appointments.map((appointment)=>
-        appointment.id===id?{...appointment, status: 'cancelled'}: appointment
+    if (currentDate > appointmentDate) {
+      alert('💥💥 El turno no puede ser cancelado, revise las condiciones de reserva');
+      return;
+    }
+    setAlertCancel(true);
+  }
+    const confirmCancel= ()=>{
+
+      //PETICION CANCELAR TURNO
+      axios.put(`http://localhost:3000/appointments/cancel/${id}`)
+      .then(()=>{
+        //actualizar el estado
+        const updateAppointment= userAppointments.map((appointment)=>
+          appointment.id===id?{...appointment, status: 'cancelled'}: appointment
       );
-      setAppointments(updateAppointment);
+      setUserAppointments(updateAppointment);
+      setAlertCancel(false)
     })
     .catch((error)=>{
       console.log(error)
     })
-  }
+    }
+  // fi¿uncion boton 
+const isDisabled= turnoActual.status==='cancelled' || (new Date(date)<= new Date());
 
   return (
     <form onSubmit={HandleButton} className='cardTurno'>
@@ -41,7 +60,8 @@ const TurnoC= ({date, time, id, pet, namePet, agePet, weigthPet, service})=> {
         <li className='textTurn'><b>Servicio:</b> {service}</li>
         </p>
       </div>
-      <button className= {`${statusBtn}`} disabled={turnoActual.status==='cancelled'} type='submit'>Cancelled</button>
+      <button className='btnTurn' disabled={isDisabled} >Cancelled</button>
+      {alertCancel && <div className='alertCancel'>¿Seguro que desea cancelar su turno? <br/> <button onClick={confirmCancel} className='btnAlert'>Si, cancelar</button> <button onClick={()=>{setAlertCancel(false)}} className='btnAlert'>No cancelar</button></div>}
     </form>
   )
 };

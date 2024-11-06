@@ -13,6 +13,13 @@
       font-style: normal;
       font-size: 2rem;
     }
+    .textTime{
+      padding: 10px;
+      margin: 5px;
+      background-color: rgb(91, 21, 21);
+      border-radius: 4px;
+      color: white;
+    }
     .formAddTurn {
       display: flex;
       flex-direction: column;
@@ -84,4 +91,9 @@
     .btnTurnos:hover{
       background-color: rgb(104, 146, 104);
       border: 2px solid white;
+    }
+    .formAddTurn button:disabled{
+      background-color: gray;
+      color: white;
+      border: grey;
     }

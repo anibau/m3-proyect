@@ -1,11 +1,11 @@
 import { createContext, useState } from "react";
 export const AppointmentContext= createContext({
-    appointments: [],
-    setAppointments: ()=>{},
+    userAppointments: [],
+    setUserAppointments: ()=>{},
 });
 
 // eslint-disable-next-line react/prop-types
 export const AppointmentProvider= ({children})=>{
-    const [appointments, setAppointments]= useState([]);
-    return(<AppointmentContext.Provider value={{appointments, setAppointments}} >{children}</AppointmentContext.Provider>)
+    const [userAppointments, setUserAppointments]= useState([]);
+    return(<AppointmentContext.Provider value={{userAppointments, setUserAppointments}} >{children}</AppointmentContext.Provider>)
 }

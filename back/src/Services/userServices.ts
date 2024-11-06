@@ -29,7 +29,6 @@ export const getAllUsersService= async(): Promise<User[]>=>{
         relations: {
             appointments: true,
             credentials: true,
-            pets: true
         }
     });
     return users

@@ -19,7 +19,7 @@ const Login=()=>{
     });
     const [submit, setSubmit]=useState(false);
     const navigate= useNavigate();
-    const {users, setUsers}= useContext(UsersContext);
+    const {user, setUser}= useContext(UsersContext);
 
     const handleInput= (event)=>{
         const{name, value}=event.target;
@@ -45,8 +45,8 @@ const Login=()=>{
               const dataUser= data.user;
               const dataId= dataUser.id;
               //guardar usuario en el contexto global
-              setUsers(dataUser);
-                console.log(users)
+              setUser(dataUser);
+                console.log(user)
               //redirigir al usuario a la ruta de turnos
               navigate(`/appointments/${dataId}`);
               //resetear estados
@@ -61,6 +61,7 @@ const Login=()=>{
                 })
         }  
     }
+    const isDisabled= !dataLogin.username || !dataLogin.password || validData.username || validData.password;
 
     return(<>
     <div className="containerLogin">
@@ -75,7 +76,7 @@ const Login=()=>{
             {submit && validData.username&& <p style={{color:'red'}}>{validData.username}</p>}
             <label>Contraseña: <input type="password" value={dataLogin.password} name="password" onChange={handleInput} required/></label>
             {submit&& validData.password&& <p style={{color:'red'}}>{validData.password}</p>}
-            <button type="submit">Login</button>
+            <button type="submit" disabled={isDisabled}>Login</button>
         </form>
             <p>¿No estas registrado? Registrate haciendo click <Link to='/register' >Aqui</Link> </p>
             {errors&&<p className="divError">{errors}</p>}

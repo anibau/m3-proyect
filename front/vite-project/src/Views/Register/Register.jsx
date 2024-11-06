@@ -72,31 +72,31 @@ const Register= ()=>{
         }
     }
 
-    
+const isDisabled= !dataRegister.name || !dataRegister.lastName || !dataRegister.email || !dataRegister.birthdate || !dataRegister.nDni || !dataRegister.telefono ||!dataRegister.username || !dataRegister.password || !dataRegister.password2;  
 
 return(<>
     <div className="divRegister">
         <h3>Registrate y agenda tu cita</h3>
         <form id="msjExit" className="formRegister" onSubmit={handleSubmit}>
             <label >Nombres: <input type="text" name="name" value={dataRegister.name}  onChange={HandleInput} /></label>
-            {submit && error.name&& <p style={{color: 'red'}}>{error.name}</p>}
+            {submit && error.name&& <p style={{color: 'red',  backgroundColor:'pink', padding:'5px'}}>{error.name}</p>}
             <label >Apellidos: <input type="text" name="lastName" value={dataRegister.lastName}  onChange={HandleInput}/> </label>
-            {submit&& error.lastName&& <p style={{color:'red'}}>{error.lastName}</p>}
+            {submit&& error.lastName&& <p style={{color:'red', backgroundColor:'pink', padding:'5px'}}>{error.lastName}</p>}
             <label >Email : <input type="email" name="email" value={dataRegister.email} onChange={HandleInput} /> </label>
-            {submit&& error.email&& <p style={{color:'red'}}>{error.email}</p>}
+            {submit&& error.email&& <p style={{color:'red', backgroundColor:'pink', padding:'5px'}}>{error.email}</p>}
             <label >Fecha de Nacimiento: <input type="date" name="birthdate" value={dataRegister.birthdate} onChange={HandleInput} required /> </label>
-            {submit&& error.birthdate&& <p style={{color:'red'}}>{error.birthdate}</p>}
+            {submit&& error.birthdate&& <p style={{color:'red', backgroundColor:'pink', padding:'5px'}}>{error.birthdate}</p>}
             <label >Numero DNI: <input type="number" name="nDni" value={dataRegister.nDni} onChange={HandleInput} /> </label>
-            {submit&& error.nDni&& <p style={{color:'red'}}>{error.nDni}</p>}
+            {submit&& error.nDni&& <p style={{color:'red', backgroundColor:'pink', padding:'5px'}}>{error.nDni}</p>}
             <label >Telefono : <input type="number" name="telefono" value={dataRegister.telefono } onChange={HandleInput}  /> </label>
-            {submit&& error.telefono&& <p style={{color:'red'}}>{error.telefono}</p>}
+            {submit&& error.telefono&& <p style={{color:'red', backgroundColor:'pink', padding:'5px'}}>{error.telefono}</p>}
             <label >Usuario: <input type="text" name="username" value={dataRegister.username} onChange={HandleInput} /> </label>
-            {submit&& error.username&& <p style={{color:'red'}}>{error.username}</p>}
+            {submit&& error.username&& <p style={{color:'red', backgroundColor:'pink', padding:'5px'}}>{error.username}</p>}
             <label >Contraseña : <input type="password" name="password" value={dataRegister.password} onChange={HandleInput} /> </label>
-            {submit&& error.password&& <p style={{color:'red'}}>{error.password}</p>}
+            {submit&& error.password&& <p style={{color:'red', backgroundColor:'pink', padding:'5px'}}>{error.password}</p>}
             <label >Repetir contraseña : <input type="password" name="password2" value={dataRegister.password2} onChange={HandleInput} /> </label>
-            {submit&& error.password2&& <p style={{color:'red'}}>{error.password2}</p>}
-            <button type="submit">ENVIAR</button> 
+            {submit&& error.password2&& <p style={{color:'red', backgroundColor:'pink', padding:'5px'}}>{error.password2}</p>}
+            <button type="submit" disabled={isDisabled}>ENVIAR</button> 
         </form>
         <p>¿Ya estas registrado? Inicia sesion haciendo click <Link to='/' >Aqui</Link> </p>
         {exit=== 'REGISTRO EXITOSO'&&<p  className="divExito">{exit}</p>}
