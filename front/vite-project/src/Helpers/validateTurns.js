@@ -20,10 +20,10 @@ export const validateTurns=(input)=>{
          else{errors.time=''}
     }
     if(input.agePet>25){
-        errors.agePet= 'Edad incorrecta'
+        errors.agePet= 'Error: Edad promedio 25 años'
     }
     if(input.weigthPet>120){
-        errors.weigthPet='Peso incorrecto'
+        errors.weigthPet='Error: Peso promedio 120kg'
     }
     return errors
 }

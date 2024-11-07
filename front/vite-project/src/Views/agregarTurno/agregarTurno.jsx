@@ -72,6 +72,7 @@ const AgregarTurnos=()=>{
     <div className="divAddTurn">
         <h3>SEPARA TU CITA PARA TU ENGREIDO PELUDO</h3>
         <div className='textTime'>Complete el siguiente formulario para reservar un turno de nuestros servicios. <ul>CONDICIONES:
+            <li><b>La fecha de reserva de turno debe ser posterior a hoy</b></li>
             <li><b>Recuerde que el horario de atencion es de 09:00 a 17:00 de Lunes a Viernes</b></li>
             <li><b>Los turnos pueden ser CANCELADOS hasta el dia anterior de la reserva</b></li>
             </ul></div>
@@ -92,7 +93,7 @@ const AgregarTurnos=()=>{
             <label> Nombre de mascota: <input type="text" name='namePet' maxLength={20} value={dataAppoint.namePet} onChange={handleInput} required /></label>
             <label> Edad de mascota: <input type="number" name='agePet' min={1}  value={dataAppoint.agePet} onChange={handleInput} required/>años</label>
             {errorData.agePet && <p style={{color:'red', backgroundColor:'pink', padding:'5px'}}><b>📢 {errorData.agePet}</b></p>}
-            <label> Peso de mascota: <input type="number" name='weigthPet' min={1} value={dataAppoint.weigthPet} onChange={handleInput} required/>kg</label>
+            <label> Peso promedio de mascota: <input type="number" name='weigthPet' min={1} value={dataAppoint.weigthPet} onChange={handleInput} required/>kg</label>
             {errorData.weigthPet && <p style={{color:'red', backgroundColor:'pink', padding:'5px'}}><b>📢 {errorData.weigthPet}</b></p>}
             </div>
             </div>
