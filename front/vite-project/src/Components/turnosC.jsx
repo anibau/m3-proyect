@@ -10,18 +10,21 @@ const TurnoC= ({date, time, id, pet, namePet, agePet, weigthPet, service})=> {
   const statusClass= turnoActual?.status==='active'? 'statusActive': 'statusCancelled';
   const [alertCancel, setAlertCancel ]=useState(false);
   
+  // Convertir fecha de la reserva y fecha actual a objetos Date
+  const currentDate = new Date();
+  currentDate.setHours(0, 0, 0, 0);
+
+  const [year, month, day] = date.split('-').map(Number);
+  const appointmentDate = new Date(year, month - 1, day);
+  // Validar si el turno puede ser cancelado
+  //appointmentDate.setDate(appointmentDate.getDate() - 1);
+  //desabilitar el boton
+ const isDisabled= turnoActual.status==='cancelled' || (appointmentDate< currentDate);
+  
   const HandleButton=(event)=>{
     event.preventDefault();
-    // Convertir fecha de la reserva y fecha actual a objetos Date
-    const currentDate = new Date();
-    const [year, month, day] = date.split('-').map(Number);
-    const appointmentDate = new Date(year, month - 1, day);
-    
-    // Validar si el turno puede ser cancelado
-    currentDate.setHours(0, 0, 0, 0);
-    appointmentDate.setDate(appointmentDate.getDate() - 1);
 
-    if (currentDate > appointmentDate) {
+    if (appointmentDate <= currentDate ) {
       alert('💥💥 El turno no puede ser cancelado, revise las condiciones de reserva');
       return;
     }
@@ -42,9 +45,7 @@ const TurnoC= ({date, time, id, pet, namePet, agePet, weigthPet, service})=> {
     .catch((error)=>{
       console.log(error)
     })
-    }
-  // fi¿uncion boton 
-const isDisabled= turnoActual.status==='cancelled' || (new Date(date)<= new Date());
+    }  
 
   return (
     <form onSubmit={HandleButton} className='cardTurno'>
