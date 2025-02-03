@@ -26,7 +26,7 @@ SPAPET es una aplicación web diseñada para la gestión de turnos en un spa par
 ## Instalación y Ejecución
 ### 1. Clonar el repositorio
 ```sh
- git clone https://github.com/usuario/SPAPET.git
+ git clone https://github.com/anibau/m3-proyect.git
  cd SPAPET
 ```
 ### 2. Configuración del Backend
@@ -38,9 +38,10 @@ SPAPET es una aplicación web diseñada para la gestión de turnos en un spa par
 ```env
 PORT=5000
 DB_HOST=localhost
-DB_USER=tu_usuario
+DB_PORT= tu_port
+DB_USERNAME=tu_usuario
 DB_PASSWORD=tu_contraseña
-DB_NAME=spapet
+DB_DATABASE=spapet
 JWT_SECRET=tu_clave_secreta
 ```
 ### 3. Iniciar el Servidor
@@ -57,24 +58,24 @@ JWT_SECRET=tu_clave_secreta
 
 ## API Endpoints
 ### **Usuarios**
-- `POST /api/auth/register` - Registrar un nuevo usuario.
-- `POST /api/auth/login` - Iniciar sesión.
-- `GET /api/users/:id` - Obtener datos de un usuario.
-- `PUT /api/users/:id` - Actualizar datos de un usuario.
-- `DELETE /api/users/:id` - Eliminar un usuario.
+- `POST /user/register` - Registrar un nuevo usuario.
+- `POST /user/login` - Iniciar sesión.
+- `GET /user/:id` - Obtener datos de un usuario.
+- `PUT /user/:id` - Actualizar datos de un usuario.
+- `DELETE /user/:id` - Eliminar un usuario.
 
 ### **Mascotas**
-- `POST /api/pets` - Registrar una nueva mascota.
-- `GET /api/pets/:id` - Obtener datos de una mascota.
-- `PUT /api/pets/:id` - Editar datos de una mascota.
-- `DELETE /api/pets/:id` - Eliminar una mascota.
+- `POST /pets` - Registrar una nueva mascota.
+- `GET /pets/:id` - Obtener datos de una mascota.
+- `PUT /pets/:id` - Editar datos de una mascota.
+- `DELETE /pets/:id` - Eliminar una mascota.
 
 ### **Turnos**
-- `POST /api/appointments` - Crear un turno.
-- `GET /api/appointments` - Listar turnos disponibles.
-- `GET /api/appointments/:id` - Obtener un turno específico.
-- `PUT /api/appointments/:id` - Editar un turno.
-- `DELETE /api/appointments/:id` - Cancelar un turno.
+- `POST /turns` - Crear un turno.
+- `GET /turns` - Listar turnos disponibles.
+- `GET /turns/:id` - Obtener un turno específico.
+- `PUT /turns/:id` - Editar un turno.
+- `DELETE /turns/:id` - Cancelar un turno.
 
 ## Contribución
 Si deseas contribuir, por favor sigue estos pasos:
